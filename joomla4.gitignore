@@ -561,3 +561,9 @@ $RECYCLE.BIN/
 # security check scans
 /administrator/components/com_securitycheckpro/scans/*
 /webanalyze/*
+
+# Backups do Akeeba
+/administrator/components/com_akeeba/backup/*
+/administrator/components/com_akeebabackup/backup/*
+/backups/*
+

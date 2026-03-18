@@ -746,6 +746,7 @@ web.config
 
 # Backups do Akeeba
 /administrator/components/com_akeeba/backup/*
+/administrator/components/com_akeebabackup/backup/*
 /backups/*
 
 # Arquivos de atualização
