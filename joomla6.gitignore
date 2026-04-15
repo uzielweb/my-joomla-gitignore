@@ -4,7 +4,7 @@
 # Este arquivo ignora todos os arquivos padrão do Joomla 6 e permite rastrear
 # apenas modificações em templates, idiomas e extensões de terceiros.
 #
-# Atualizado em: 16 de outubro de 2025
+# Atualizado em: abril de 2026 — Joomla 6.1 Nyota (verificado via API GitHub joomla/joomla-cms@6.1-dev)
 # ==============================================================================
 
 # ==============================================================================
@@ -360,8 +360,11 @@ web.config
 /plugins/behaviour/taggable
 /plugins/behaviour/versionable
 
-# Captcha
-/plugins/captcha/
+# Captcha — Joomla 6.1
+# reCAPTCHA foi removido do core no Joomla 4.x — NAO inclua recaptcha aqui
+# Joomla 6.0: nenhum plugin captcha nativo
+# Joomla 6.1: somente powcaptcha (PR #46514 — Proof-of-Work, sem API key)
+/plugins/captcha/powcaptcha
 
 # Content
 /plugins/content/confirmconsent
@@ -415,6 +418,10 @@ web.config
 /plugins/fields/url
 /plugins/fields/user
 /plugins/fields/usergrouplist
+# NOVO Joomla 6.1 — Media Custom Fields (PR #45013): audio, vídeo e documentos
+/plugins/fields/audio
+/plugins/fields/video
+/plugins/fields/documents
 
 # Filesystem
 /plugins/filesystem/local
@@ -656,13 +663,17 @@ web.config
 /media/mod_quickicon
 /media/mod_sampledata
 
-# Media - Plugins padrão (ATUALIZADO PARA JOOMLA 6)
+# Media - Plugins padrão (ATUALIZADO PARA JOOMLA 6.1)
 /media/plg_behaviour_compat6
+/media/plg_captcha_powcaptcha
 /media/plg_content_vote
 /media/plg_editors_codemirror
 /media/plg_editors_none
 /media/plg_editors_tinymce
 /media/plg_editors-xtd_image
+/media/plg_fields_audio
+/media/plg_fields_video
+/media/plg_fields_documents
 /media/plg_installer_folderinstaller
 /media/plg_installer_packageinstaller
 /media/plg_installer_urlinstaller
