@@ -4,7 +4,7 @@
 # Este arquivo ignora todos os arquivos padrão do Joomla 5 e permite rastrear
 # apenas modificações em templates, idiomas e extensões de terceiros.
 #
-# Atualizado em: 16 de outubro de 2025
+# Atualizado em: abril de 2026 (verificado via API GitHub joomla/joomla-cms@5.4-dev)
 # ==============================================================================
 
 # ==============================================================================
@@ -260,6 +260,7 @@ $RECYCLE.BIN/
 /components/com_privacy
 /components/com_tags
 /components/com_users
+/components/com_workflow
 /components/com_wrapper
 /components/index.html
 /images
@@ -328,8 +329,8 @@ $RECYCLE.BIN/
 /media/mod_multilangstatus
 /media/mod_quickicon
 /media/mod_sampledata
-/media/plg_captcha_recaptcha
-/media/plg_captcha_recaptcha_invisible
+# /media/plg_captcha_recaptcha          (removido do core Joomla 5.x — nao existe no 5.4-dev)
+# /media/plg_captcha_recaptcha_invisible (removido do core Joomla 5.x — nao existe no 5.4-dev)
 /media/plg_content_vote
 /media/plg_editors_codemirror
 /media/plg_editors_none
@@ -393,8 +394,8 @@ $RECYCLE.BIN/
 /plugins/authentication/ldap
 /plugins/behaviour/taggable
 /plugins/behaviour/versionable
-/plugins/captcha/recaptcha
-/plugins/captcha/recaptcha_invisible
+# /plugins/captcha/recaptcha           (removido do core — coberto por /plugins/captcha/ na linha ~553)
+# /plugins/captcha/recaptcha_invisible  (removido do core — coberto por /plugins/captcha/ na linha ~553)
 /plugins/content/confirmconsent
 /plugins/content/contact
 /plugins/content/emailcloak
