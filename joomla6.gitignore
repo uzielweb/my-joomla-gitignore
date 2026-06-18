@@ -730,8 +730,12 @@ web.config
 # SCANS DE SEGURANÇA E ANÁLISES
 # ==============================================================================
 
-# Security Check Pro scans
+# Security Check Pro scans e logs
 /administrator/components/com_securitycheckpro/scans/*
+/administrator/components/com_securitycheckpro/src/View/Logs/
+
+# JCH Optimize
+/media/plg_jchoptimize/assets*/Web.config
 
 # Web Analyze
 /webanalyze/*

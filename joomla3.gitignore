@@ -441,9 +441,13 @@ $RECYCLE.BIN/
 /.well-known/*
 /.webconfig
 
-# security check scans
+# security check scans e logs
 /administrator/components/com_securitycheckpro/scans/*
+/administrator/components/com_securitycheckpro/src/View/Logs/
 /webanalyze/*
+
+# JCH Optimize
+/media/plg_jchoptimize/assets*/Web.config
 
 # Backups do Akeeba
 /administrator/components/com_akeeba/backup/*
