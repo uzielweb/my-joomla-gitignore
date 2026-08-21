@@ -552,6 +552,15 @@ $RECYCLE.BIN/
 /robots.txt.dist
 /web.config.txt
 /index.php
+.htaccess
+web.config
+
+# Dumps e backups de banco de dados na raiz (scripts .sql dentro de extensões NÃO são ignorados)
+/*.sql
+/*.sql.gz
+/*.sql.zip
+/*.sql.bz2
+/*.sql.tar.gz
 # since Joomla 4.3.0
 /administrator/components/com_guidedtours/
 /administrator/modules/mod_guidedtours/
