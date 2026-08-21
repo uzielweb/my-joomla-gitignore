@@ -5,33 +5,57 @@
 
 ## 🇧🇷 Em Português
 
-Arquivos `.gitignore` prontos para uso em projetos Joomla nas versões **3, 4, 5 e 6**. Estes arquivos incluem também um escopo otimizado para sistemas operacionais, IDEs e ferramentas baseadas em Inteligência Artificial.
+Arquivos `.gitignore` prontos para uso em projetos Joomla nas versões **3, 4, 5 e 6**. Estes arquivos ignoram os arquivos padrão do core e incluem um escopo otimizado para sistemas operacionais, IDEs e ferramentas de Inteligência Artificial / agentes de código.
 
 ### 📋 Versões Disponíveis
 
-| Arquivo | Versão do Joomla | Descrição |
-|---|---|---|
-| [joomla3.gitignore](joomla3.gitignore) | Joomla 3.x | Templates: Protostar, Beez3, Hathor, Isis |
-| [joomla4.gitignore](joomla4.gitignore) | Joomla 4.x | Templates: Cassiopeia, Atum. Inclui API REST |
-| [joomla5.gitignore](joomla5.gitignore) | Joomla 5.x | Atualizado com guidedtours, schemaorg, compat |
-| [joomla6.gitignore](joomla6.gitignore) | Joomla 6.x | Versão mais recente, com seções organizadas |
+| Arquivo | Versão do Joomla | Descrição | Link Direto (Raw) |
+|---|---|---|---|
+| [joomla3.gitignore](joomla3.gitignore) | Joomla 3.x | Templates: Protostar, Beez3, Hathor, Isis | [Raw Link](https://raw.githubusercontent.com/uzielweb/my-joomla-gitignore/main/joomla3.gitignore) |
+| [joomla4.gitignore](joomla4.gitignore) | Joomla 4.x | Templates: Cassiopeia, Atum. Inclui API REST | [Raw Link](https://raw.githubusercontent.com/uzielweb/my-joomla-gitignore/main/joomla4.gitignore) |
+| [joomla5.gitignore](joomla5.gitignore) | Joomla 5.x | Atualizado com guidedtours, schemaorg, compat | [Raw Link](https://raw.githubusercontent.com/uzielweb/my-joomla-gitignore/main/joomla5.gitignore) |
+| [joomla6.gitignore](joomla6.gitignore) | Joomla 6.x | Versão mais recente (Joomla 6.1 Nyota) | [Raw Link](https://raw.githubusercontent.com/uzielweb/my-joomla-gitignore/main/joomla6.gitignore) |
 
 ### 🚀 Como Usar
 
-1. Escolha o arquivo correspondente à versão do seu Joomla
-2. Copie o conteúdo para um arquivo chamado `.gitignore` na raiz do seu projeto Joomla
-3. Limpe o cache do Git (recomendado caso seu repositório já exista):
+#### Opção 1: Download direto via terminal (recomendado)
+Execute na raiz do seu projeto Joomla:
 
 ```bash
-git rm -r --cached . && git add . && git commit -am "Arquivos removidos do índice (agora ignorados)"
+# Para Joomla 6:
+curl -o .gitignore https://raw.githubusercontent.com/uzielweb/my-joomla-gitignore/main/joomla6.gitignore
+
+# Para Joomla 5:
+curl -o .gitignore https://raw.githubusercontent.com/uzielweb/my-joomla-gitignore/main/joomla5.gitignore
+
+# Para Joomla 4:
+curl -o .gitignore https://raw.githubusercontent.com/uzielweb/my-joomla-gitignore/main/joomla4.gitignore
+
+# Para Joomla 3:
+curl -o .gitignore https://raw.githubusercontent.com/uzielweb/my-joomla-gitignore/main/joomla3.gitignore
+```
+
+#### Opção 2: Cópia manual
+1. Abra o arquivo correspondente à sua versão do Joomla.
+2. Copie todo o conteúdo para um arquivo chamado `.gitignore` na raiz do projeto.
+
+#### 🔄 Atualizar repositório existente (Limpar cache do Git)
+Se o repositório já possuía arquivos do core rastreados antes de aplicar o `.gitignore`, limpe o índice do Git para que as regras tenham efeito:
+
+```bash
+git rm -r --cached .
+git add .
+git commit -m "chore: aplica novo .gitignore e limpa arquivos ignorados do indice"
 ```
 
 ### 📝 Observações Importantes
 
-- **Idiomas**: Por padrão, as pastas `language` **não são ignoradas**, permitindo rastrear sempre as versões mais recentes dos arquivos de idioma do seu site.
-- **Extensões de terceiros**: Como apenas os arquivos do core do Joomla são ignorados, extensões de terceiros (componentes, módulos, etc.) e customizações serão rastreadas automaticamente.
-- **Overrides de templates**: As pastas `html` dos templates padrão do frontend e backend (`cassiopeia/html`, `atum/html`) **não são ignoradas** nas versões 4, 5 e 6, permitindo rastrear as substituições (overrides) visuais do seu projeto.
-- **Ferramentas de IA**: Os arquivos e pastas gerados por agentes de codificação e ferramentas de IA (como Antigravity, `.agents`, Cursor, Claude Code, Cline, Roo, Windsurf, Copilot e Gemini) estão bloqueados de fábrica.
+- **Segurança e Senhas**: Arquivos sensíveis como `/configuration.php`, `.env` e `.htpasswd` são sempre ignorados para evitar vazamento de credenciais e chaves no repositório.
+- **Idiomas e Overrides**: As pastas `/language/`, `/administrator/language/` e suas subpastas de overrides (`overrides/*.ini`) **não são ignoradas**, garantindo o versionamento de traduções e novos pacotes de idioma (como `pt-BR`).
+- **Extensões de Terceiros**: Apenas as extensões nativas do core do Joomla são ignoradas. Componentes, módulos e plugins desenvolvidos sob medida ou instalados de terceiros são rastreados automaticamente.
+- **Overrides de Templates**: As pastas `html/` dos templates padrão do frontend e backend (`cassiopeia/html/`, `atum/html/`) **são rastreadas** no Joomla 4, 5 e 6, permitindo versionar suas customizações visuais.
+- **Uploads e Mídia**: A pasta `/images/` é ignorada por padrão para evitar o armazenamento de uploads e mídias pesadas de usuários no histórico do Git.
+- **Ferramentas de IA e IDEs**: Pastas e arquivos gerados por agentes de código e IDEs (como Antigravity, `.agents/`, `.agent`, `.gemini/`, `.antigravity/`, Cursor, Claude Code, Cline, Roo, Windsurf, Copilot, `.vscode/` e `.idea/`) vêm bloqueados por padrão.
 
 ### 📂 Exemplo do que é rastreado
 
@@ -39,41 +63,65 @@ Exemplos do que **será** rastreado pelo Git:
 - `/templates/meu_template_customizado/`
 - `/plugins/system/minha_extensao/`
 - `/administrator/components/com_minha_extensao/`
-- `/language/pt-BR/` (ou qualquer idioma adicional)
-- `/administrator/templates/atum/html/` (overrides)
-- `/templates/cassiopeia/html/` (overrides)
+- `/language/pt-BR/` (e demais pacotes de idioma)
+- `/administrator/templates/atum/html/` (overrides do backend)
+- `/templates/cassiopeia/html/` (overrides do frontend)
 
 ---
 
 ## 🇺🇸 In English
 
-Ready-to-use `.gitignore` files for Joomla projects in versions **3, 4, 5, and 6**. These files also include an optimized scope for avoiding tracking operating system files, modern IDE folders, and Artificial Intelligence tools.
+Ready-to-use `.gitignore` files for Joomla projects in versions **3, 4, 5, and 6**. These files ignore core files and provide an optimized scope for operating systems, IDEs, and AI coding agents.
 
 ### 📋 Available Versions
 
-| File | Joomla Version | Description |
-|---|---|---|
-| [joomla3.gitignore](joomla3.gitignore) | Joomla 3.x | Templates: Protostar, Beez3, Hathor, Isis |
-| [joomla4.gitignore](joomla4.gitignore) | Joomla 4.x | Templates: Cassiopeia, Atum. Includes REST API |
-| [joomla5.gitignore](joomla5.gitignore) | Joomla 5.x | Updated with guided tours, schema.org, compat |
-| [joomla6.gitignore](joomla6.gitignore) | Joomla 6.x | Latest version, featuring thoroughly organized sections |
+| File | Joomla Version | Description | Direct Raw Link |
+|---|---|---|---|
+| [joomla3.gitignore](joomla3.gitignore) | Joomla 3.x | Templates: Protostar, Beez3, Hathor, Isis | [Raw Link](https://raw.githubusercontent.com/uzielweb/my-joomla-gitignore/main/joomla3.gitignore) |
+| [joomla4.gitignore](joomla4.gitignore) | Joomla 4.x | Templates: Cassiopeia, Atum. Includes REST API | [Raw Link](https://raw.githubusercontent.com/uzielweb/my-joomla-gitignore/main/joomla4.gitignore) |
+| [joomla5.gitignore](joomla5.gitignore) | Joomla 5.x | Updated with guided tours, schema.org, compat | [Raw Link](https://raw.githubusercontent.com/uzielweb/my-joomla-gitignore/main/joomla5.gitignore) |
+| [joomla6.gitignore](joomla6.gitignore) | Joomla 6.x | Latest version (Joomla 6.1 Nyota) | [Raw Link](https://raw.githubusercontent.com/uzielweb/my-joomla-gitignore/main/joomla6.gitignore) |
 
 ### 🚀 How to Use
 
-1. Choose the corresponding gitignore file for your current Joomla version.
-2. Copy its content into a file named `.gitignore` located at the root of your Joomla project.
-3. Clean the Git cache (highly recommended if you are adding this to an existing repository):
+#### Option 1: Direct terminal download (Recommended)
+Run at the root of your Joomla project:
 
 ```bash
-git rm -r --cached . && git add . && git commit -am "Files removed from the index (now ignored)"
+# For Joomla 6:
+curl -o .gitignore https://raw.githubusercontent.com/uzielweb/my-joomla-gitignore/main/joomla6.gitignore
+
+# For Joomla 5:
+curl -o .gitignore https://raw.githubusercontent.com/uzielweb/my-joomla-gitignore/main/joomla5.gitignore
+
+# For Joomla 4:
+curl -o .gitignore https://raw.githubusercontent.com/uzielweb/my-joomla-gitignore/main/joomla4.gitignore
+
+# For Joomla 3:
+curl -o .gitignore https://raw.githubusercontent.com/uzielweb/my-joomla-gitignore/main/joomla3.gitignore
+```
+
+#### Option 2: Manual copy
+1. Open the file corresponding to your Joomla version.
+2. Copy all content into a file named `.gitignore` at the project root.
+
+#### 🔄 Update an existing repository (Clean Git cache)
+If your repository already tracked Joomla core files before applying this `.gitignore`, clear the Git index so the new rules take effect:
+
+```bash
+git rm -r --cached .
+git add .
+git commit -m "chore: apply new .gitignore and remove ignored files from index"
 ```
 
 ### 📝 Important Notes
 
-- **Languages**: By default, `language` folders **are not ignored**, allowing you to always track the latest translated files of your site.
-- **Third-party extensions**: Because these gitignore algorithms are strict string matches for the core files only, any third-party extensions, components, modules, or plugins you install will be tracked automatically.
-- **Template overrides**: The customizable `html` folders within default templates (`cassiopeia/html`, `atum/html`) **are not ignored** on Joomla 4, 5, and 6, so your visual layout overrides will be successfully tracked by Git.
-- **AI Tools**: Files and folders generated by coding agents and AI tools (such as Antigravity, `.agents`, Cursor, Claude Code, Cline, Roo, Windsurf, Copilot, and Gemini) are locked down and ignored right out of the box.
+- **Security & Passwords**: Sensitive files such as `/configuration.php`, `.env`, and `.htpasswd` are always ignored to prevent leaking database credentials and secret keys into your repository.
+- **Languages & Overrides**: The `/language/` and `/administrator/language/` folders (including `overrides/*.ini`) **are not ignored**, ensuring custom language packs (such as `pt-BR`, `es-ES`) and string overrides are tracked.
+- **Third-party extensions**: Only standard core Joomla extensions are ignored. Any custom or third-party components, modules, and plugins you develop or install will be tracked automatically.
+- **Template overrides**: Customizable `html/` folders inside default templates (`cassiopeia/html/`, `atum/html/`) **are tracked** on Joomla 4, 5, and 6, preserving your visual layout overrides.
+- **Uploads & Media**: The `/images/` directory is ignored by default to keep heavy user uploads and media files out of the Git history.
+- **AI Tools & IDEs**: Files and folders generated by coding agents and IDEs (such as Antigravity, `.agents/`, `.agent`, `.gemini/`, `.antigravity/`, Cursor, Claude Code, Cline, Roo, Windsurf, Copilot, `.vscode/`, and `.idea/`) are locked down and ignored out of the box.
 
 ### 📂 What IS Tracked
 
@@ -81,9 +129,9 @@ Examples of what **will be** actively tracked by your Git repository:
 - `/templates/my_custom_template/`
 - `/plugins/system/my_super_plugin/`
 - `/administrator/components/com_my_extension/`
-- `/language/en-GB/` (or any non-default extra language file folder)
-- `/administrator/templates/atum/html/` (custom overrides)
-- `/templates/cassiopeia/html/` (custom overrides)
+- `/language/pt-BR/` (or any additional language pack)
+- `/administrator/templates/atum/html/` (backend overrides)
+- `/templates/cassiopeia/html/` (frontend overrides)
 
 ---
 
