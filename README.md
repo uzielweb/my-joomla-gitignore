@@ -18,7 +18,7 @@ Arquivos `.gitignore` prontos para uso em projetos Joomla nas versões **3, 4, 5
 
 ### 🚀 Como Usar
 
-#### Opção 1: Download direto via terminal (recomendado)
+#### Opção 1: Download direto via terminal (Recomendado)
 Execute na raiz do seu projeto Joomla:
 
 ```bash
@@ -39,14 +39,27 @@ curl -o .gitignore https://raw.githubusercontent.com/uzielweb/my-joomla-gitignor
 1. Abra o arquivo correspondente à sua versão do Joomla.
 2. Copie todo o conteúdo para um arquivo chamado `.gitignore` na raiz do projeto.
 
-#### 🔄 Atualizar repositório existente (Limpar cache do Git)
-Se o repositório já possuía arquivos do core rastreados antes de aplicar o `.gitignore`, limpe o índice do Git para que as regras tenham efeito:
+---
+
+### ⚠️ Aplicando em Repositórios Existentes (Cuidado Importante)
+
+Se o seu repositório já estava rastreando arquivos do core do Joomla antes de adicionar o `.gitignore`, apenas adicionar o arquivo não remove o que já está versionado.
+
+Para desindexar os arquivos sem apagá-los do seu disco local:
 
 ```bash
 git rm -r --cached .
 git add .
 git commit -m "chore: aplica novo .gitignore e limpa arquivos ignorados do indice"
 ```
+
+> [!CAUTION]
+> **ATENÇÃO AO FAZER PUSH EM PRODUÇÃO OU EQUIPES**:
+> O comando `git rm -r --cached .` preserva os arquivos na sua máquina local, mas registra uma **remoção** no histórico do Git. 
+> - Se você enviar (`git push`) esse commit para um servidor de produção ou outro colega rodar `git pull`, **o Git apagará do disco de produção todos os arquivos que deixaram de ser rastreados**, o que pode derrubar o site se o core não estiver instalado de outra forma.
+> - **Recomendação**: Crie uma branch de teste e faça backup completo antes de aplicar essa limpeza em repositórios que já estejam em produção.
+
+---
 
 ### 📝 Observações Importantes
 
@@ -105,14 +118,27 @@ curl -o .gitignore https://raw.githubusercontent.com/uzielweb/my-joomla-gitignor
 1. Open the file corresponding to your Joomla version.
 2. Copy all content into a file named `.gitignore` at the project root.
 
-#### 🔄 Update an existing repository (Clean Git cache)
-If your repository already tracked Joomla core files before applying this `.gitignore`, clear the Git index so the new rules take effect:
+---
+
+### ⚠️ Applying to Existing Repositories (Important Warning)
+
+If your repository was already tracking Joomla core files prior to adding this `.gitignore`, simply adding the file will not un-track files that are already indexed.
+
+To remove tracked files from Git without deleting them from your local disk:
 
 ```bash
 git rm -r --cached .
 git add .
 git commit -m "chore: apply new .gitignore and remove ignored files from index"
 ```
+
+> [!CAUTION]
+> **BE CAREFUL WHEN PUSHING TO PRODUCTION OR TEAMS**:
+> The `git rm -r --cached .` command preserves files on your local machine, but records a **deletion** in Git history.
+> - If you push this commit to a production server or a teammate runs `git pull`, **Git will physically delete all un-tracked files from their disk**, which can take down your live site.
+> - **Recommendation**: Test this on a separate branch and take a full backup before applying index cleanup to production repositories.
+
+---
 
 ### 📝 Important Notes
 
