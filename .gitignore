@@ -1,1 +1,33 @@
+# Agentes e Ferramentas de IA
+.agent/
+.agents/
 .agent
+.agents
+.gemini/
+.gemini
+.antigravity/
+.antigravity
+.claude/
+.claudeignore
+.cursor/
+.cursorrules
+.cursorignore
+.cline/
+cline_docs/
+.roo/
+.aider*
+.windsurf/
+
+# IDEs e Editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Sistema Operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log

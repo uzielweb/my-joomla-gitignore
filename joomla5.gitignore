@@ -73,8 +73,21 @@ cline_docs/
 .roo/
 .aider*
 .agent/
+.agents/
+.agent
+.agents
+.claude/
+.claudeignore
+.clauderules
+.windsurf/
+.codeium/
+.continue/
 .gemini/
+.gemini
 .antigravity
+.antigravity/
+.openhands/
+.devin/
 
 # Unit test reports
 TEST*.xml
@@ -527,6 +540,8 @@ $RECYCLE.BIN/
 /templates/index.html
 /templates/cassiopeia
 !/templates/cassiopeia/html
+/administrator/templates/atum
+!/administrator/templates/atum/html
 /templates/system
 /tmp
 # Joomla root files
